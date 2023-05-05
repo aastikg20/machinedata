@@ -20,8 +20,8 @@ const app = express();
 mongoose
   .connect(mongoString, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() =>
-    app.listen(3000, () =>
-      console.log(`Server running on port ${3000}`)
+    app.listen(port, () =>
+      console.log(`Server running on port ${port}`)
     )
   )
   .catch((err) => console.log(err));

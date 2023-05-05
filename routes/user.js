@@ -17,12 +17,19 @@ router.post('/addmachineData', async (req, res) => {
 });
 
 router.get('/machineData', async (req, res) => {
-    Data.find((error, data) => {
-      if (error) {
-        return res.status(500).send(error);
-      }
+    const data = await Data.find({})
+    if(!data) {
+      return res.status(500).send(error);
+    }
+    else{
       return res.status(200).send(data);
-    });
+    }
+    // Data.find((error, data) => {
+    //   if (error) {
+    //     return res.status(500).send(error);
+    //   }
+    //   return res.status(200).send(data);
+    // });
   });
 
 module.exports = router
